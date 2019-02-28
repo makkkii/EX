@@ -15,8 +15,6 @@ requests-unixsocket==0.1.5
 SecretStorage==2.3.1
 simplejson==3.13.2
 six==1.11.0
-system-service==0.3
-systemd-python==234
 urllib3==1.22
 virtualenv==16.2.0
 whitenoise==4.1.2
