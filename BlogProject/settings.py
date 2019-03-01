@@ -28,7 +28,12 @@ SECRET_KEY = 'uyo%o40+mdpc$630p5y=t0p*=pm6lhdzplyvd^*h$86+xq_98l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['excurcus.herokuapp.com', 'excurcus.xyz']
+ALLOWED_HOSTS = [
+    'excurcus.herokuapp.com', 
+    'excurcus.xyz', 
+    'www.excurcus.herokuapp.com', 
+    'www.excurcus.xyz'
+    ]
 
 
 # Application definition
