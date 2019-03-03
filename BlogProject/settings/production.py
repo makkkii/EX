@@ -11,7 +11,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 
-MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
+# MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
 
 DATABASES = {
     'default': dj_database_url.config(
@@ -19,7 +19,7 @@ DATABASES = {
     )
 }
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
 EMAIL_HOST = 'smtp.mailgun.org'
