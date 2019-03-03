@@ -9,6 +9,7 @@ from markdown import markdown
 class Board(models.Model):
     name = models.CharField(max_length=30, unique=True)
     description = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -21,10 +22,11 @@ class Board(models.Model):
 
 class Topic(models.Model):
     subject = models.CharField(max_length=255)
-    last_updated = models.DateTimeField(auto_now_add=True)
     board = models.ForeignKey(Board, related_name='topics')
     starter = models.ForeignKey(User, related_name='topics')
     views = models.PositiveIntegerField(default=0)
+    created_at = models.DateTimeField(auto_now=True)  
+    last_updated = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.subject
