@@ -30,3 +30,5 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
 
 DEFAULT_FROM_EMAIL = 'Excurcus <noreply@excurcus.xyz>'
 EMAIL_SUBJECT_PREFIX = '[Excurcus]'
+
+django_heroku.settings(locals())
