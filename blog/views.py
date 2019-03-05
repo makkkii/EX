@@ -5,17 +5,20 @@ from django.contrib.auth.models import User
 from django.db.models import Count
 from .forms import NewTopicForm, PostForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.decorators import method_decorator
 from django.views.generic import UpdateView, ListView
 from django.utils import timezone
 from django.core.paginator import PageNotAnInteger, EmptyPage, Paginator
 
-class BoardListView(ListView):
+class BoardListView(LoginRequiredMixin, ListView):
+    login_url = '/login/'
     model = Board
     context_object_name = 'boards'
     template_name = 'home.html'
 
-class TopicListView(ListView):
+class TopicListView(LoginRequiredMixin, ListView):
+    login_url = '/login/'
     model = Topic
     context_object_name = 'topics'
     template_name = 'topics.html'
@@ -30,7 +33,8 @@ class TopicListView(ListView):
         queryset = self.board.topics.order_by('-last_updated').annotate(replies=Count('posts') - 1)
         return queryset
 
-class PostListView(ListView):
+class PostListView(LoginRequiredMixin, ListView):
+    login_url = '/login/'
     model = Post
     context_object_name = 'posts'
     template_name = 'topic_posts.html'

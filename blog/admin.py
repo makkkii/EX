@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.admin import ModelAdmin
-from .models import Board, Post, Topic
+from .models import Board, Post, Topic, UserProfile
 
 class BoardAdmin(ModelAdmin):
   list_display = [
@@ -34,3 +34,4 @@ class TopicAdmin(ModelAdmin):
 admin.site.register(Board, BoardAdmin)
 admin.site.register(Topic, TopicAdmin)
 admin.site.register(Post, PostAdmin)
+admin.site.register(UserProfile)
